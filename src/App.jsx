@@ -7,6 +7,7 @@ function App() {
       <Typography>react</Typography>
       <Typography>vite</Typography>
       <Typography>start</Typography>
+      <Typography>test</Typography>
     </Box>
   );
 }
