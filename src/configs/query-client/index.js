@@ -1,6 +1,6 @@
-import { QueryClient } from 'react-query'
+import { QueryClient } from 'react-query';
 
-const queryClient = new QueryClient()
+export const queryClient = new QueryClient();
 queryClient.setDefaultOptions({
   queries: {
     staleTime: 1000 * 60, // 쿼리 결과가 1분 동안은 "신선"한 것으로 간주됩니다.
@@ -10,6 +10,4 @@ queryClient.setDefaultOptions({
   mutations: {
     // 뮤테이션에 대한 기본 설정
   },
-})
-
-export default queryClient
+});
