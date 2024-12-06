@@ -5,7 +5,7 @@ import { DashboardPaper } from '@/components/dashboard/paper';
 export const DashBoard = () => {
   return (
     <Box>
-      <Typography>Quick actions</Typography>
+      <Typography variant="h4-semi-bold-md">Assets</Typography>
       <Box sx={{ display: 'flex', gap: 2 }}>
         <DashboardPaper />
         <DashboardPaper />

@@ -33,12 +33,14 @@ import { Path } from '@/constants/path';
 import Logo from '@/assets/images/logo.png';
 import Person from '@/assets/images/person.jpg';
 import { top100Films } from '@/apps/vcpx/pages/dashboard/top100Films';
+import { VCPPalette } from '@/configs/themes/vcp-palette';
 
 const drawerWidth = 240;
 
 export const AppLayout = ({ mode, setMode, ...props }) => {
   const { window } = props;
   const theme = useTheme();
+  const palette = VCPPalette(mode);
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -119,7 +121,7 @@ export const AppLayout = ({ mode, setMode, ...props }) => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                placeholder="Search this account, Marketplace, and documentation"
+                placeholder="Search for Data Assets"
                 InputProps={{
                   ...params.InputProps,
                   startAdornment: (
@@ -137,14 +139,26 @@ export const AppLayout = ({ mode, setMode, ...props }) => {
           />
 
           {/* 테마 변경 버튼 */}
-          <IconButton color="inherit" onClick={toggleThemeMode}>
+          <IconButton
+            color="inherit"
+            onClick={toggleThemeMode}
+            sx={{ backgroundColor: 'transparent' }}
+          >
             {mode === 'light' ? <Bedtime /> : <WbSunny />}
           </IconButton>
-          <IconButton>
+          <IconButton sx={{ backgroundColor: 'transparent' }}>
             <NotificationsNoneOutlined />
           </IconButton>
           {/* 아바타 */}
-          <Button sx={{ display: 'flex', gap: 1, boxShadow: 'none', p: 2 }}>
+          <Button
+            sx={{
+              display: 'flex',
+              gap: 1,
+              boxShadow: 'none',
+              p: 2,
+              backgroundColor: 'transparent',
+            }}
+          >
             <Avatar src={Person} alt="avatar" sx={{ width: 32, height: 32 }} />
             <Typography sx={{ fontSize: '14px', fontWeight: 550 }}>
               Emma Watson
@@ -196,7 +210,7 @@ export const AppLayout = ({ mode, setMode, ...props }) => {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          p: '0 40px 24px',
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           backgroundColor: mode === 'light' ? '#fcfcfc' : '#1d1d1d',
         }}
