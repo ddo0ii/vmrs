@@ -26,6 +26,7 @@ export const DataGrid = ({
     <MuiDataGrid
       rows={rows}
       columns={columns}
+      pageSizeOptions={[5, 10, 25, 50, 100]}
       slots={{
         // toolbar: toolbar || DefaultToolbar,
         // pagination: rows?.length > 0 && isPagination && DefaultPagination,

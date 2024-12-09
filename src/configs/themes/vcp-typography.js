@@ -1,4 +1,5 @@
 const getTypographyVariants = (size, weight, lineHeight, letterSpacing) => ({
+  fontFamily: 'Pretendard',
   fontSize: size,
   fontWeight: weight,
   lineHeight: lineHeight,

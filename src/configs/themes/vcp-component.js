@@ -179,6 +179,45 @@ export const VCPComponent = (mode) => {
       },
     },
 
+    // DataGrid
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+          border: 1,
+          // fontFamily: VCPTypography.fontFamily,
+          // border: `1px solid ${palette.border.default}`,
+          // backgroundColor: palette.background.default,
+          // color: palette.text.primary,
+          '& .MuiDataGrid-cell': {
+            // ...VCPTypography['body.small.regular'],
+            // borderBottom: `1px solid ${palette.border.default}`,
+          },
+          '& .MuiDataGrid-columnHeaders': {
+            // ...VCPTypography['table.header'],
+            // backgroundColor: palette.table.header,
+            // color: palette.text.secondary,
+            // borderBottom: `2px solid ${palette.border.default}`,
+          },
+          '& .MuiDataGrid-columnSeparator': {
+            // display: 'none', // 컬럼 구분선 제거
+          },
+          '& .MuiDataGrid-footerContainer': {
+            // backgroundColor: palette.background.paper,
+            // borderTop: `1px solid ${palette.border.default}`,
+          },
+          '& .MuiDataGrid-row:hover': {
+            // backgroundColor: palette.background.contrast,
+          },
+          // toolbarContainer: {
+          //   fontSize: '0.875rem', // rows per page 텍스트 크기 조정
+          // },
+          // footerContainer: {
+          //   fontSize: '0.875rem', // Pagination 영역 텍스트 크기 조정
+          // },
+        },
+      },
+    },
+
     // Chip
     MuiChip: {
       styleOverrides: {

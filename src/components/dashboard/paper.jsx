@@ -10,6 +10,7 @@ export const DashboardPaper = ({
   chartColor = '#D1C4E9',
 }) => {
   const theme = useTheme();
+
   // 숫자를 , 로 포맷하는 함수
   const formatNumber = (num) => {
     return new Intl.NumberFormat('en-US').format(num);
@@ -60,7 +61,7 @@ export const DashboardPaper = ({
         ]}
         leftAxis={null}
         bottomAxis={null}
-        width={350}
+        width={330}
         height={50}
         margin={{
           left: 0,
@@ -69,6 +70,7 @@ export const DashboardPaper = ({
           bottom: 0,
         }}
         axisHighlight={{ x: 'none', y: 'none' }}
+        sx={{ ml: 2 }}
       />
     </Paper>
   );

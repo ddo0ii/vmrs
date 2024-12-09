@@ -5,6 +5,8 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createAppTheme } from '@/configs/themes/theme';
 import { queryClient } from '@/configs/query-client';
 
+import('@/assets/fonts/static/pretendard.css');
+
 import('./apps/vcpx/app.jsx').then(({ App }) => {
   const MainApp = () => {
     // 로컬 스토리지에서 모드 읽기 (없으면 기본값 'system')
