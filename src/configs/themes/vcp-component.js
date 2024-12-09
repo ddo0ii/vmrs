@@ -3,14 +3,14 @@ import { VCPTypography } from './vcp-typography';
 
 export const VCPComponent = (mode) => {
   const palette = VCPPalette(mode);
-  const typography = VCPTypography;
 
   return {
     // Button
     MuiButton: {
       styleOverrides: {
         root: {
-          ...typography.button.medium,
+          fontFamily: VCPTypography.fontFamily,
+          ...VCPTypography['button.medium'],
           textTransform: 'none',
           padding: '10px 20px',
           borderRadius: 12,
@@ -41,8 +41,9 @@ export const VCPComponent = (mode) => {
       },
       styleOverrides: {
         root: {
-          ...typography.body.medium,
-          backgroundColor: palette.background.paper,
+          fontFamily: VCPTypography.fontFamily,
+          ...VCPTypography['body.medium.regular'],
+          backgroundColor: palette.background.default,
           color: palette.text.primary,
           borderRadius: 8,
           '& .MuiInputBase-root': {
@@ -52,7 +53,8 @@ export const VCPComponent = (mode) => {
             border: `1px solid ${palette.border.default}`,
           },
           '& .MuiInputBase-input::placeholder': {
-            ...typography.placeholder.medium,
+            fontFamily: VCPTypography.fontFamily,
+            ...VCPTypography['placeholder.medium'],
             color: palette.text.placeholder,
           },
         },
@@ -66,9 +68,10 @@ export const VCPComponent = (mode) => {
       },
       styleOverrides: {
         root: {
-          ...typography.body.medium,
+          fontFamily: VCPTypography.fontFamily,
+          ...VCPTypography['body.medium.regular'],
           borderRadius: 8,
-          backgroundColor: palette.background.paper,
+          backgroundColor: palette.background.default,
           '& .MuiSelect-select': {
             padding: '10px 14px',
             borderRadius: 8,
@@ -82,6 +85,7 @@ export const VCPComponent = (mode) => {
     MuiIconButton: {
       styleOverrides: {
         root: {
+          fontFamily: VCPTypography.fontFamily,
           width: 40,
           height: 40,
           padding: 0,
@@ -106,12 +110,12 @@ export const VCPComponent = (mode) => {
     MuiToolbar: {
       styleOverrides: {
         root: {
-          ...typography.h2.regular,
+          fontFamily: VCPTypography.fontFamily,
+          ...VCPTypography['h2.regular'],
           height: 72,
           padding: '10px 24px',
-          backgroundColor: palette.background.paper,
+          backgroundColor: palette.background.default,
           color: palette.text.primary,
-          borderBottom: `2px solid ${palette.border.default}`,
         },
       },
     },
@@ -123,13 +127,14 @@ export const VCPComponent = (mode) => {
       },
       styleOverrides: {
         root: {
+          fontFamily: VCPTypography.fontFamily,
           '& .MuiInputBase-root': {
-            ...typography.body.medium,
+            ...VCPTypography['body.medium.regular'],
             padding: '10px 14px',
             borderRadius: 8,
             backgroundColor: palette.background.default,
             '& .MuiInputBase-input::placeholder': {
-              ...typography.placeholder.medium,
+              ...VCPTypography['placeholder.medium'],
               color: palette.text.placeholder,
             },
           },
@@ -141,12 +146,13 @@ export const VCPComponent = (mode) => {
     MuiCard: {
       styleOverrides: {
         root: {
+          fontFamily: VCPTypography.fontFamily,
           borderRadius: 16,
           boxShadow:
             mode === 'light'
               ? '0px 6px 12px rgba(0, 0, 0, 0.1)'
               : '0px 6px 12px rgba(255, 255, 255, 0.1)',
-          backgroundColor: palette.background.paper,
+          backgroundColor: palette.background.default,
           color: palette.text.primary,
           padding: '20px',
         },
@@ -157,14 +163,15 @@ export const VCPComponent = (mode) => {
     MuiTable: {
       styleOverrides: {
         root: {
-          backgroundColor: palette.background.paper,
+          fontFamily: VCPTypography.fontFamily,
+          backgroundColor: palette.background.default,
           '& .MuiTableHead-root': {
-            ...typography.table.header,
+            ...VCPTypography['table.header'],
             backgroundColor: palette.table.header,
             color: palette.text.primary,
           },
           '& .MuiTableBody-root': {
-            ...typography.table.body,
+            ...VCPTypography['table.body'],
             backgroundColor: palette.table.body,
             color: palette.text.secondary,
           },
@@ -176,6 +183,7 @@ export const VCPComponent = (mode) => {
     MuiChip: {
       styleOverrides: {
         root: {
+          fontFamily: VCPTypography.fontFamily,
           borderRadius: 16,
           backgroundColor: palette.primary.light,
           color: palette.text.primary,
@@ -190,7 +198,8 @@ export const VCPComponent = (mode) => {
     MuiTooltip: {
       styleOverrides: {
         tooltip: {
-          ...typography.body.small,
+          fontFamily: VCPTypography.fontFamily,
+          ...VCPTypography['body.small.regular'],
           backgroundColor: palette.background.contrast,
           color: palette.text.primary,
           borderRadius: 6,
@@ -203,6 +212,7 @@ export const VCPComponent = (mode) => {
     MuiSnackbar: {
       styleOverrides: {
         root: {
+          fontFamily: VCPTypography.fontFamily,
           backgroundColor: palette.background.overlay,
           color: palette.text.primary,
         },
@@ -213,8 +223,9 @@ export const VCPComponent = (mode) => {
     MuiAlert: {
       styleOverrides: {
         root: {
+          fontFamily: VCPTypography.fontFamily,
+          ...VCPTypography['body.medium.regular'],
           borderRadius: 8,
-          ...typography.body.medium,
           padding: '12px 20px',
           '&.MuiAlert-standardSuccess': {
             backgroundColor: palette.success.light,

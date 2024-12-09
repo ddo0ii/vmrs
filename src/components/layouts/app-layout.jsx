@@ -55,6 +55,7 @@ export const AppLayout = ({ mode, setMode, ...props }) => {
   const drawer = (
     <div>
       <Toolbar
+        // sx={{ backgroundColor: palette.background.paper }}
         sx={{ backgroundColor: mode === 'light' ? '#f5f6fa' : '#1d1d1d' }}
       >
         <img
@@ -212,7 +213,7 @@ export const AppLayout = ({ mode, setMode, ...props }) => {
           flexGrow: 1,
           p: '0 40px 24px',
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-          backgroundColor: mode === 'light' ? '#fcfcfc' : '#1d1d1d',
+          backgroundColor: palette.background.default,
         }}
       >
         <Toolbar />

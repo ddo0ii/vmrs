@@ -59,8 +59,8 @@ export const VCPPalette = (mode) => ({
         white: '#ffffff',
         black: '#000000',
         background: {
-          default: '#F5F5F5',
-          paper: '#ffffff',
+          default: '#FCFCFC',
+          paper: '#FFFFFF',
           contrast: '#E0E0E0',
           overlay: 'rgba(0, 0, 0, 0.05)',
         },
@@ -87,7 +87,8 @@ export const VCPPalette = (mode) => ({
           disabled: '#B3B6C4',
         },
         border: {
-          default: '#B3B6C4',
+          // default: '#B3B6C4',
+          default: '#E7E9EE',
           hover: '#6C758F',
           active: '#4D5DAA',
         },
@@ -150,7 +151,8 @@ export const VCPPalette = (mode) => ({
         white: '#ffffff',
         black: '#000000',
         background: {
-          default: '#121212',
+          default: '#05070A',
+          // default: '#121212',
           paper: '#1D1D1D',
           contrast: '#2A2A2A',
           overlay: 'rgba(255, 255, 255, 0.05)',
@@ -178,7 +180,8 @@ export const VCPPalette = (mode) => ({
           disabled: '#5C6A9E',
         },
         border: {
-          default: '#4D5DAA',
+          default: '#20242A',
+          // default: '#4D5DAA',
           hover: '#6C758F',
           active: '#90CAF9',
         },

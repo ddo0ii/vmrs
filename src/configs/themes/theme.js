@@ -5,7 +5,10 @@ import { VCPPalette } from '@/configs/themes/vcp-palette';
 
 const getDesignTokens = (mode) => ({
   palette: VCPPalette(mode),
-  typography: VCPTypography,
+  typography: {
+    // fontFamily: VCPTypography.fontFamily,
+    ...VCPTypography,
+  },
   components: VCPComponent(mode),
 });
 
