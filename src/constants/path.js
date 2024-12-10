@@ -12,6 +12,6 @@ export const Path = {
 
   // 대시 보드
   DASHBOARD: '/dashboard',
-
-  COMPANY: `/company`,
+  COMPANY: '/company',
+  BILLING: '/billing',
 };

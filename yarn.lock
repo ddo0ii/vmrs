@@ -1423,6 +1423,19 @@
     "@babel/runtime" "^7.25.7"
     "@mui/utils" "^5.16.6 || ^6.0.0"
 
+"@mui/x-tree-view@^7.23.0":
+  version "7.23.0"
+  resolved "https://registry.yarnpkg.com/@mui/x-tree-view/-/x-tree-view-7.23.0.tgz#396cbb7279b0e79e7bc570f9c0ad1d271e53fff3"
+  integrity sha512-67e+FCVMD2A5IaNettHFLUg09j+mMOWlN9f0Uw+LGePA9vLCAMFBdPZIFa18J9F3hTurNLrFzjVA0O4QfHlvrQ==
+  dependencies:
+    "@babel/runtime" "^7.25.7"
+    "@mui/utils" "^5.16.6 || ^6.0.0"
+    "@mui/x-internals" "7.23.0"
+    "@types/react-transition-group" "^4.4.11"
+    clsx "^2.1.1"
+    prop-types "^15.8.1"
+    react-transition-group "^4.4.5"
+
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
   resolved "https://registry.npmjs.org/@nicolo-ribaudo/eslint-scope-5-internals/-/eslint-scope-5-internals-5.1.1-v1.tgz"

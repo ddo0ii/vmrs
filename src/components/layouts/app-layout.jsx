@@ -5,15 +5,9 @@ import {
   Avatar,
   Box,
   Button,
-  Divider,
   Drawer,
   IconButton,
   InputAdornment,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
   TextField,
   Toolbar,
   Typography,
@@ -21,23 +15,20 @@ import {
 } from '@mui/material';
 import {
   Bedtime,
-  Inbox,
-  Mail,
   Menu,
   NotificationsNoneOutlined,
   Search,
   WbSunny,
 } from '@mui/icons-material';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { Path } from '@/constants/path';
-import Logo from '@/assets/images/logo.png';
 import Person from '@/assets/images/person.jpg';
 import { top100Films } from '@/apps/vcpx/pages/dashboard/top100Films';
 import { VCPPalette } from '@/configs/themes/vcp-palette';
+import { SideNavBar } from '@/components/side-nav-bar';
 
 const drawerWidth = 240;
 
-export const AppLayout = ({ mode, setMode, ...props }) => {
+export const AppLayout = ({ menuData, mode, setMode, ...props }) => {
   const { window } = props;
   const theme = useTheme();
   const palette = VCPPalette(mode);
@@ -51,43 +42,6 @@ export const AppLayout = ({ mode, setMode, ...props }) => {
   const toggleThemeMode = () => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   };
-
-  const drawer = (
-    <div>
-      <Toolbar
-        // sx={{ backgroundColor: palette.background.paper }}
-        sx={{ backgroundColor: mode === 'light' ? '#f5f6fa' : '#1d1d1d' }}
-      >
-        <img
-          src={Logo}
-          alt="VCP-X 로고"
-          onClick={() => navigate(Path.HOME)}
-          style={{ cursor: 'pointer', width: '100px' }}
-        />
-      </Toolbar>
-      <Divider />
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton
-              sx={{
-                backgroundColor: 'transparent',
-                color: mode === 'light' ? '#7f8c8d' : '#bbbbbb',
-                '&:hover': {
-                  backgroundColor: mode === 'light' ? '#f2f2f2' : '#333333', // 호버 색상
-                },
-              }}
-            >
-              <ListItemIcon>
-                {index % 2 === 0 ? <Inbox /> : <Mail />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -189,7 +143,7 @@ export const AppLayout = ({ mode, setMode, ...props }) => {
             },
           }}
         >
-          {drawer}
+          <SideNavBar menuData={menuData} mode={mode} />
         </Drawer>
         <Drawer
           variant="permanent"
@@ -204,7 +158,7 @@ export const AppLayout = ({ mode, setMode, ...props }) => {
           }}
           open
         >
-          {drawer}
+          <SideNavBar menuData={menuData} mode={mode} />
         </Drawer>
       </Box>
       <Box
