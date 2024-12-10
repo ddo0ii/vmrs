@@ -168,12 +168,12 @@ export const VCPComponent = (mode) => {
           '& .MuiTableHead-root': {
             ...VCPTypography['table.header'],
             backgroundColor: palette.table.header,
-            color: palette.text.primary,
+            // color: palette.text.primary,
           },
           '& .MuiTableBody-root': {
             ...VCPTypography['table.body'],
             backgroundColor: palette.table.body,
-            color: palette.text.secondary,
+            // color: palette.text.secondary,
           },
         },
       },

@@ -11,7 +11,7 @@ import { TreeItem2Provider } from '@mui/x-tree-view/TreeItem2Provider';
 import { useTreeItem2 } from '@mui/x-tree-view/useTreeItem2';
 import clsx from 'clsx';
 import { Box, Typography } from '@mui/material';
-import { Description, Folder, FolderOpen } from '@mui/icons-material';
+import { Folder, FolderOpen } from '@mui/icons-material';
 
 // Tree Item 스타일 정의
 const CustomTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
@@ -103,8 +103,17 @@ const treeData = [
         id: '1-1',
         label: 'INFORMATION_SCHEMA',
         children: [
-          { id: '1-1-1', label: 'Views', icon: Description },
-          { id: '1-1-2', label: 'Public', icon: Description },
+          {
+            id: '1-1-1',
+            label: 'Views',
+            children: [
+              { id: '1-1-1-1', label: 'APPLICABLE_ROLES' },
+              { id: '1-1-1-2', label: 'CLASSES' },
+              { id: '1-1-1-3', label: 'CLASS_INSTANCES' },
+              { id: '1-1-1-4', label: 'CLASS_INSTANCE_FUNCTIONS' },
+              { id: '1-1-1-5', label: 'COLUMNS' },
+            ],
+          },
         ],
       },
     ],
@@ -117,10 +126,41 @@ const treeData = [
         id: '2-1',
         label: 'INFORMATION_SCHEMA',
         children: [
-          { id: '2-1-1', label: 'Views', icon: Description },
-          { id: '2-1-2', label: 'Functions', icon: Description },
+          {
+            id: '2-1-1',
+            label: 'Views',
+            children: [
+              { id: '2-1-1-1', label: 'APPLICABLE_ROLES' },
+              { id: '2-1-1-2', label: 'CLASSES' },
+              { id: '2-1-1-3', label: 'CLASS_INSTANCES' },
+              { id: '2-1-1-4', label: 'CLASS_INSTANCE_FUNCTIONS' },
+              { id: '2-1-1-5', label: 'COLUMNS' },
+            ],
+          },
         ],
       },
+    ],
+  },
+  {
+    id: '3',
+    label: 'PUBLIC',
+    children: [
+      {
+        id: '3-1',
+        label: 'Tables',
+        children: [{ id: '3-1-1', label: 'SAMPLE_TABLE' }],
+      },
+    ],
+  },
+  {
+    id: '4',
+    label: 'SNOWFLAKE',
+    children: [
+      { id: '4-1', label: 'ACCOUNT_USAGE' },
+      { id: '4-2', label: 'ALERT' },
+      { id: '4-3', label: 'BCR_ROLLOUT' },
+      { id: '4-4', label: 'CORE' },
+      { id: '4-5', label: 'DATA_PRIVACY' },
     ],
   },
 ];

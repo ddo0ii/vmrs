@@ -14,6 +14,7 @@ export const Path = {
   DASHBOARD: '/dashboard',
   PROJECT: '/project',
   DATA: '/data',
+  DATA_DATABASES: '/data/databases',
 
   SEARCH: '/search',
   BILLING: '/billing',

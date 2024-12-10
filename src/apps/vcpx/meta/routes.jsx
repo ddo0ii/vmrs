@@ -4,10 +4,11 @@ import { SignInLayout } from '@/components/layouts/sign-in-layout';
 import { Navigate } from 'react-router-dom';
 import { AppLayout } from '@/components/layouts/app-layout';
 import { DashBoard } from '@/apps/vcpx/pages/dashboard';
-import { Data } from '@/apps/vcpx/pages/data';
 import { Biiling } from '@/apps/vcpx/pages/billing';
 import { menus } from './menus';
 import { Project } from '@/apps/vcpx/pages/project';
+import { DataLayout } from '@/components/layouts/data-layout';
+import { DataDatabases } from '@/apps/vcpx/pages/data/databases';
 
 const IS_INDEX_JSX = true;
 
@@ -76,10 +77,21 @@ export const routes = (mode, setMode) => [
         element: <Project />,
         IS_INDEX_JSX,
       },
+
       {
         path: Path.DATA,
-        element: <Data />,
-        IS_INDEX_JSX,
+        element: <DataLayout />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to={Path.DATA_DATABASES} replace />,
+          },
+          {
+            path: Path.DATA_DATABASES,
+            element: <DataDatabases />,
+            IS_INDEX_JSX,
+          },
+        ],
       },
       {
         path: Path.BILLING,
