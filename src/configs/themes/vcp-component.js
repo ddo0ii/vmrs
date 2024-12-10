@@ -221,6 +221,24 @@ export const VCPComponent = (mode) => {
       },
     },
 
+    MuiCheckbox: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+
+    MuiRadio: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+
+    MuiSwitch: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+
     // Chip
     MuiChip: {
       styleOverrides: {

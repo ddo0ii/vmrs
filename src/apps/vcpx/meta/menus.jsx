@@ -13,9 +13,9 @@ export const menus = [
     icon: DashBoardIcon,
   },
   {
-    id: Path.COMPANY,
+    id: Path.SEARCH,
     title: 'Search',
-    path: Path.COMPANY,
+    path: Path.SEARCH,
     icon: SearchIcon,
   },
   {
