@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import {
@@ -11,7 +11,13 @@ import { TreeItem2Provider } from '@mui/x-tree-view/TreeItem2Provider';
 import { useTreeItem2 } from '@mui/x-tree-view/useTreeItem2';
 import clsx from 'clsx';
 import { Box, Typography } from '@mui/material';
-import { Folder, FolderOpen } from '@mui/icons-material';
+import {
+  ArrowForward,
+  Folder,
+  FolderOpen,
+  InsertChart,
+  TextFields,
+} from '@mui/icons-material';
 
 // Tree Item 스타일 정의
 const CustomTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
@@ -20,20 +26,21 @@ const CustomTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
 
 const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
   color: theme.palette.text.secondary,
-  borderRadius: theme.spacing(1),
-  padding: theme.spacing(1),
+  borderRadius: theme.spacing(0.5),
+  padding: theme.spacing(0.5),
+  fontSize: '0.8rem',
   '&:hover': {
-    backgroundColor: theme.palette.action.hover,
+    backgroundColor: '#e3f2fd',
   },
-  '&.expanded, &.focused, &.selected, &.selected.focused': {
-    backgroundColor: theme.palette.action.selected,
+  '&.selected': {
+    backgroundColor: '#bbdefb',
     color: theme.palette.text.primary,
   },
 }));
 
 const CustomTreeItemIconContainer = styled(TreeItem2IconContainer)(
   ({ theme }) => ({
-    marginRight: theme.spacing(1),
+    marginRight: theme.spacing(0.5),
     '& .MuiSvgIcon-root': {
       fontSize: '1rem',
     },
@@ -42,13 +49,14 @@ const CustomTreeItemIconContainer = styled(TreeItem2IconContainer)(
 
 const CustomTreeItemGroupTransition = styled(TreeItem2GroupTransition)(
   ({ theme }) => ({
-    marginLeft: theme.spacing(2),
+    marginLeft: theme.spacing(1),
   }),
 );
 
 // Custom Tree Item 컴포넌트
 const CustomTreeItem = forwardRef(function CustomTreeItem(props, ref) {
-  const { id, itemId, label, children, labelIcon: LabelIcon, ...other } = props;
+  const { id, itemId, label, children, depth, selected, onClick, ...other } =
+    props;
 
   const {
     getRootProps,
@@ -59,6 +67,14 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(props, ref) {
     status,
   } = useTreeItem2({ id, itemId, children, label, rootRef: ref });
 
+  // 계층에 따라 아이콘 선택
+  const getIconByDepth = () => {
+    if (depth === 0) return status.expanded ? <FolderOpen /> : <Folder />; // 첫 번째 뎁스
+    if (depth === 1) return <InsertChart />; // 두 번째 뎁스
+    if (depth === 2) return <ArrowForward />; // 세 번째 뎁스
+    return <TextFields />; // 네 번째 뎁스
+  };
+
   return (
     <TreeItem2Provider itemId={itemId}>
       <CustomTreeItemRoot {...getRootProps(other)}>
@@ -66,19 +82,19 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(props, ref) {
           {...getContentProps({
             className: clsx('content', {
               expanded: status.expanded,
-              selected: status.selected,
-              focused: status.focused,
+              selected: selected,
             }),
+            onClick: () => onClick(itemId),
           })}
         >
           <CustomTreeItemIconContainer {...getIconContainerProps()}>
-            {status.expanded ? <FolderOpen /> : <Folder />}
+            {getIconByDepth()}
           </CustomTreeItemIconContainer>
           <Box sx={{ flexGrow: 1 }}>
             <Typography
               {...getLabelProps({
                 variant: 'body2',
-                sx: { fontWeight: status.selected ? 'bold' : 'inherit' },
+                sx: { fontWeight: selected ? 'bold' : 'inherit' },
               })}
             >
               {label}
@@ -93,7 +109,7 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(props, ref) {
   );
 });
 
-// 트리 데이터 샘플
+// Tree Data
 const treeData = [
   {
     id: '1',
@@ -167,10 +183,19 @@ const treeData = [
 
 // Tree View 컴포넌트
 export const CustomTreeView = () => {
-  const renderTree = (nodes) => (
-    <CustomTreeItem key={nodes.id} itemId={nodes.id} label={nodes.label}>
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const renderTree = (nodes, depth = 0) => (
+    <CustomTreeItem
+      key={nodes.id}
+      itemId={nodes.id}
+      label={nodes.label}
+      depth={depth} // 현재 깊이 전달
+      selected={selectedItem === nodes.id}
+      onClick={(id) => setSelectedItem(id)}
+    >
       {Array.isArray(nodes.children)
-        ? nodes.children.map((node) => renderTree(node))
+        ? nodes.children.map((node) => renderTree(node, depth + 1)) // 자식 노드에 depth + 1 전달
         : null}
     </CustomTreeItem>
   );
@@ -178,7 +203,8 @@ export const CustomTreeView = () => {
   return (
     <SimpleTreeView
       aria-label="database-tree-view"
-      defaultExpandedItems={['1', '2']}
+      defaultExpandedItems={['1']}
+      sx={{ width: '300px', fontSize: '0.8rem' }}
     >
       {treeData.map((tree) => renderTree(tree))}
     </SimpleTreeView>
