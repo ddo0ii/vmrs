@@ -4,9 +4,10 @@ import { SignInLayout } from '@/components/layouts/sign-in-layout';
 import { Navigate } from 'react-router-dom';
 import { AppLayout } from '@/components/layouts/app-layout';
 import { DashBoard } from '@/apps/vcpx/pages/dashboard';
-import { Search } from '@/apps/vcpx/pages/search';
+import { Data } from '@/apps/vcpx/pages/data';
 import { Biiling } from '@/apps/vcpx/pages/billing';
 import { menus } from './menus';
+import { Project } from '@/apps/vcpx/pages/project';
 
 const IS_INDEX_JSX = true;
 
@@ -71,8 +72,13 @@ export const routes = (mode, setMode) => [
         IS_INDEX_JSX,
       },
       {
-        path: Path.SEARCH,
-        element: <Search />,
+        path: Path.PROJECT,
+        element: <Project />,
+        IS_INDEX_JSX,
+      },
+      {
+        path: Path.DATA,
+        element: <Data />,
         IS_INDEX_JSX,
       },
       {

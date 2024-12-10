@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Search = () => {
+export const Data = () => {
   return <div>sera</div>;
 };

@@ -1,7 +1,8 @@
 import {
   DashboardOutlined as DashBoardIcon,
+  DatasetOutlined as DataIcon,
   PaymentOutlined as PaymentIcon,
-  SearchOutlined as SearchIcon,
+  SummarizeOutlined as ProjectIcon,
 } from '@mui/icons-material';
 import { Path } from '@/constants/path';
 
@@ -13,10 +14,16 @@ export const menus = [
     icon: DashBoardIcon,
   },
   {
-    id: Path.SEARCH,
-    title: 'Search',
-    path: Path.SEARCH,
-    icon: SearchIcon,
+    id: Path.PROJECT,
+    title: 'Project',
+    path: Path.PROJECT,
+    icon: ProjectIcon,
+  },
+  {
+    id: Path.DATA,
+    title: 'Data',
+    path: Path.DATA,
+    icon: DataIcon,
   },
   {
     id: Path.BILLING,

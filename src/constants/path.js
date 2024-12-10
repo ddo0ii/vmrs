@@ -12,6 +12,9 @@ export const Path = {
 
   // 대시 보드
   DASHBOARD: '/dashboard',
+  PROJECT: '/project',
+  DATA: '/data',
+
   SEARCH: '/search',
   BILLING: '/billing',
 };
