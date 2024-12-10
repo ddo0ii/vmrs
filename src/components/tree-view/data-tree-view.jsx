@@ -12,10 +12,10 @@ import { useTreeItem2 } from '@mui/x-tree-view/useTreeItem2';
 import clsx from 'clsx';
 import { Box, Typography } from '@mui/material';
 import {
-  ExpandMore,
   Folder,
   FolderOpen,
   InsertChart,
+  TableChart,
   TextFields,
 } from '@mui/icons-material';
 
@@ -69,10 +69,10 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(props, ref) {
 
   // 계층에 따라 아이콘 선택
   const getIconByDepth = () => {
-    if (depth === 0) return status.expanded ? <FolderOpen /> : <Folder />; // 첫 번째 뎁스
-    if (depth === 1) return <InsertChart />; // 두 번째 뎁스
-    if (depth === 2) return <ExpandMore />; // 세 번째 뎁스
-    return <TextFields />; // 네 번째 뎁스
+    if (depth === 0) return status.expanded ? <FolderOpen /> : <Folder />; // 데이터베이스
+    if (depth === 1) return <InsertChart />; // 스키마
+    if (depth === 2) return <TableChart />; // 테이블/뷰
+    return <TextFields />; // 기타
   };
 
   return (
@@ -123,7 +123,7 @@ export const CustomTreeView = ({ treeData }) => {
       onClick={(id) => setSelectedItem(id)}
     >
       {Array.isArray(nodes.children)
-        ? nodes.children.map((node) => renderTree(node, depth + 1)) // 자식 노드에 depth + 1 전달
+        ? nodes.children.map((node) => renderTree(node, depth + 1))
         : null}
     </CustomTreeItem>
   );
