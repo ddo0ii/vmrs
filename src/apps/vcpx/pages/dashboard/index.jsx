@@ -31,7 +31,9 @@ export const DashBoard = () => {
           chartColor="#FFE0B2"
         />
       </Box>
-      <Typography variant="h5.semiBold">Details</Typography>
+      <Typography variant="h5.semiBold" sx={{ mt: 3 }}>
+        Details
+      </Typography>
       <DataGrid rows={rows} columns={columns} />
     </Box>
   );

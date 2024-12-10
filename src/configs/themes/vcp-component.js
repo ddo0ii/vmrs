@@ -181,39 +181,34 @@ export const VCPComponent = (mode) => {
 
     // DataGrid
     MuiDataGrid: {
+      defaultProps: {
+        // disableRowSelectionOnClick: true,
+        // disableColumnFilter: true,
+        // disableColumnSelector: true,
+        // disableDensitySelector: true,
+        // disableColumnMenu: true,
+      },
       styleOverrides: {
         root: {
-          border: 1,
-          // fontFamily: VCPTypography.fontFamily,
-          // border: `1px solid ${palette.border.default}`,
-          // backgroundColor: palette.background.default,
-          // color: palette.text.primary,
-          '& .MuiDataGrid-cell': {
-            // ...VCPTypography['body.small.regular'],
-            // borderBottom: `1px solid ${palette.border.default}`,
+          border: 'none',
+          '& .MuiInputBase-root': {
+            fontSize: '0.9rem', // 드롭다운 숫자 크기
+            '& .MuiSelect-root': {},
           },
-          '& .MuiDataGrid-columnHeaders': {
-            // ...VCPTypography['table.header'],
-            // backgroundColor: palette.table.header,
-            // color: palette.text.secondary,
-            // borderBottom: `2px solid ${palette.border.default}`,
-          },
-          '& .MuiDataGrid-columnSeparator': {
-            // display: 'none', // 컬럼 구분선 제거
-          },
-          '& .MuiDataGrid-footerContainer': {
-            // backgroundColor: palette.background.paper,
-            // borderTop: `1px solid ${palette.border.default}`,
-          },
-          '& .MuiDataGrid-row:hover': {
-            // backgroundColor: palette.background.contrast,
-          },
-          // toolbarContainer: {
-          //   fontSize: '0.875rem', // rows per page 텍스트 크기 조정
+          // '& .MuiInputBase-root': {
+          //   '& .MuiSelect-root': {},
           // },
-          // footerContainer: {
-          //   fontSize: '0.875rem', // Pagination 영역 텍스트 크기 조정
-          // },
+          '& .MuiInputBase-inputSizeSmall': {
+            padding: '0px', // 기본 패딩 제거
+          },
+          '& .MuiSelect-select': {},
+          '& .MuiSelect-icon': {},
+          '& .MuiTablePagination-root': {},
+          '& .MuiDataGrid-footerContainer': {},
+          '& .MuiDataGrid-cell': {},
+          '& .MuiDataGrid-columnHeaders': {},
+          '& .MuiDataGrid-columnSeparator': {},
+          '& .MuiDataGrid-row:hover': {},
         },
       },
     },

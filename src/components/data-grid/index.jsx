@@ -26,6 +26,7 @@ export const DataGrid = ({
     <MuiDataGrid
       rows={rows}
       columns={columns}
+      rowHeight={38}
       pageSizeOptions={[5, 10, 25, 50, 100]}
       slots={{
         // toolbar: toolbar || DefaultToolbar,
@@ -46,6 +47,10 @@ export const DataGrid = ({
       }}
       paginationModel={paginationModel}
       onPaginationModelChange={setPaginationModel}
+      disableRowSelectionOnClick
+      // disableColumnMenu
+      // disableColumnSelector
+      // checkboxSelection
       {...dataGridProps}
     />
   );
