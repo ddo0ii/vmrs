@@ -4,7 +4,7 @@ import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import { ChevronRight, ExpandMore } from '@mui/icons-material';
 import Logo from '@/assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
-import { CustomTreeItem } from '@/components/tree-view';
+import { DrawerCustomTreeItem } from '@/components/tree-view/drawer-tree-view';
 
 // SideNavBar 컴포넌트
 export const SideNavBar = ({ menuData, mode }) => {
@@ -38,7 +38,7 @@ export const SideNavBar = ({ menuData, mode }) => {
         sx={{ flexGrow: 1, maxWidth: 400 }}
       >
         {menuData.map((menu) => (
-          <CustomTreeItem
+          <DrawerCustomTreeItem
             key={menu.id}
             itemId={menu.id}
             label={menu.title}

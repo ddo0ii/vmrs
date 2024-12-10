@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import {
   TreeItem2Content,
@@ -12,11 +12,11 @@ import clsx from 'clsx';
 import { TreeItem2Icon } from '@mui/x-tree-view/TreeItem2Icon';
 import { Box, Typography } from '@mui/material';
 
-export const CustomTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
+const CustomTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
   color: theme.palette.text.primary,
 }));
 
-export const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
+const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
   marginBottom: theme.spacing(0.3),
   color: theme.palette.text.secondary,
   borderRadius: theme.spacing(1),
@@ -36,7 +36,7 @@ export const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
   },
 }));
 
-export const CustomTreeItemIconContainer = styled(TreeItem2IconContainer)(
+const CustomTreeItemIconContainer = styled(TreeItem2IconContainer)(
   ({ theme }) => ({
     marginRight: theme.spacing(1),
     '& .MuiSvgIcon-root': {
@@ -46,7 +46,7 @@ export const CustomTreeItemIconContainer = styled(TreeItem2IconContainer)(
   }),
 );
 
-export const CustomTreeItemGroupTransition = styled(TreeItem2GroupTransition)(
+const CustomTreeItemGroupTransition = styled(TreeItem2GroupTransition)(
   ({ theme }) => ({
     marginLeft: 0,
     [`& .content`]: {
@@ -55,7 +55,7 @@ export const CustomTreeItemGroupTransition = styled(TreeItem2GroupTransition)(
   }),
 );
 
-export const CustomTreeItem = React.forwardRef(
+export const DrawerCustomTreeItem = forwardRef(
   function CustomTreeItem(props, ref) {
     const theme = useTheme();
     const {
