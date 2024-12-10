@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Toolbar } from '@mui/material';
+import { Toolbar } from '@mui/material';
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import { ChevronRight, ExpandMore } from '@mui/icons-material';
 import Logo from '@/assets/images/logo.png';
@@ -16,18 +16,17 @@ export const SideNavBar = ({ menuData, mode }) => {
         sx={{
           backgroundColor: mode === 'light' ? '#f5f6fa' : '#1d1d1d',
           display: 'flex',
-          justifyContent: 'center',
           alignItems: 'center',
+          ml: 2,
         }}
       >
         <img
           src={Logo}
           alt="VCP-X 로고"
-          onClick={() => navigate(Path.HOME)}
+          onClick={() => navigate(Path.DASHBOARD)}
           style={{ cursor: 'pointer', width: '100px' }}
         />
       </Toolbar>
-      <Divider />
       <SimpleTreeView
         aria-label="side navigation"
         defaultExpandedItems={['1']}
