@@ -1,84 +1,52 @@
 import React from 'react';
-import {
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Toolbar,
-  useTheme,
-} from '@mui/material';
+import { Divider, Toolbar } from '@mui/material';
+import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
+import { ChevronRight, ExpandMore } from '@mui/icons-material';
 import Logo from '@/assets/images/logo.png';
-import { useNavigate } from 'react-router-dom'; // react-router-dom 사용
-import { Path } from '@/constants/path';
+import { useNavigate } from 'react-router-dom';
+import { CustomTreeItem } from '@/components/tree-view';
 
+// SideNavBar 컴포넌트
 export const SideNavBar = ({ menuData, mode }) => {
-  const theme = useTheme(); // theme에서 typography 사용
-  const navigate = useNavigate(); // navigate 함수 사용
-
-  // 스타일 정의
-  const styles = {
-    toolbar: {
-      backgroundColor: mode === 'light' ? '#f5f6fa' : '#1d1d1d',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    listItemButton: {
-      backgroundColor: 'transparent',
-      color: mode === 'light' ? '#7f8c8d' : '#bbbbbb',
-      '&:hover': {
-        backgroundColor: mode === 'light' ? '#f2f2f2' : '#333333',
-      },
-      padding: '4px 8px', // 버튼 크기 축소
-      minHeight: '40px', // 버튼 높이 조정
-    },
-    listItemIcon: {
-      minWidth: '30px', // 아이콘의 최소 너비 조정
-      '& .MuiSvgIcon-root': {
-        fontSize: '14px', // 아이콘 크기 설정
-      },
-    },
-    listItemText: {
-      fontSize: '14px', // 글자 크기 설정
-      '& .MuiTypography-root': {
-        fontSize: '14px', // 내부 Typography 스타일 직접 조정
-      },
-    },
-    logo: {
-      cursor: 'pointer',
-      width: '100px',
-    },
-  };
+  const navigate = useNavigate();
 
   return (
     <div>
-      <Toolbar sx={styles.toolbar}>
+      <Toolbar
+        sx={{
+          backgroundColor: mode === 'light' ? '#f5f6fa' : '#1d1d1d',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <img
           src={Logo}
           alt="VCP-X 로고"
           onClick={() => navigate(Path.HOME)}
-          style={styles.logo}
+          style={{ cursor: 'pointer', width: '100px' }}
         />
       </Toolbar>
       <Divider />
-      <List>
+      <SimpleTreeView
+        aria-label="side navigation"
+        defaultExpandedItems={['1']}
+        slots={{
+          expandIcon: ChevronRight,
+          collapseIcon: ExpandMore,
+        }}
+        sx={{ flexGrow: 1, maxWidth: 400 }}
+      >
         {menuData.map((menu) => (
-          <ListItem key={menu.id} disablePadding>
-            <ListItemButton
-              onClick={() => navigate(menu.path)}
-              sx={styles.listItemButton}
-            >
-              <ListItemIcon sx={styles.listItemIcon}>{menu.icon}</ListItemIcon>
-              <ListItemText
-                primary={menu.title}
-                sx={styles.listItemText} // 텍스트 크기 조정
-              />
-            </ListItemButton>
-          </ListItem>
+          <CustomTreeItem
+            key={menu.id}
+            itemId={menu.id}
+            label={menu.title}
+            labelIcon={menu.icon}
+            onClick={() => navigate(menu.path)}
+          />
         ))}
-      </List>
+      </SimpleTreeView>
     </div>
   );
 };

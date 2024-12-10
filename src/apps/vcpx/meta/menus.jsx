@@ -1,28 +1,27 @@
 import {
-  BusinessOutlined as CompanyIcon,
-  CreditScoreOutlined as BillingIcon,
-  DashboardOutlined as DashboardIcon,
+  BusinessOutlined,
+  DashboardOutlined,
+  PaymentOutlined,
 } from '@mui/icons-material';
-import React from 'react';
 import { Path } from '@/constants/path';
 
 export const menus = [
   {
-    id: Path.DASHBOARD,
+    id: 'dashboard',
     title: '대시보드',
     path: Path.DASHBOARD,
-    icon: <DashboardIcon />,
+    icon: DashboardOutlined, // 컴포넌트로 전달
   },
   {
-    id: Path.COMPANY,
+    id: 'company',
     title: '회사 관리',
     path: Path.COMPANY,
-    icon: <CompanyIcon />,
+    icon: BusinessOutlined, // 컴포넌트로 전달
   },
   {
-    id: Path.BILLING,
+    id: 'billing',
     title: '정산 관리',
     path: Path.BILLING,
-    icon: <BillingIcon />,
+    icon: PaymentOutlined, // 컴포넌트로 전달
   },
 ];
