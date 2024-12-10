@@ -12,23 +12,20 @@ import clsx from 'clsx';
 import { TreeItem2Icon } from '@mui/x-tree-view/TreeItem2Icon';
 import { Box, Typography } from '@mui/material';
 
-export const TreeView = () => {
-  return <div></div>;
-};
-
-// Custom Tree Item 스타일 정의
 export const CustomTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.primary,
 }));
 
 export const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
   marginBottom: theme.spacing(0.3),
   color: theme.palette.text.secondary,
-  borderRadius: theme.spacing(2),
-  paddingRight: theme.spacing(1),
-  fontWeight: theme.typography.fontWeightMedium,
+  borderRadius: theme.spacing(1),
+  padding: theme.spacing(1),
+  // paddingRight: theme.spacing(1),
+  fontSize: theme.typography['body.small.regular'].fontSize,
+  fontWeight: theme.typography['body.small.regular'].fontWeight,
   '&.expanded': {
-    fontWeight: theme.typography.fontWeightRegular,
+    fontWeight: theme.typography['body.small.bold'].fontWeight,
   },
   '&:hover': {
     backgroundColor: theme.palette.action.hover,
@@ -42,6 +39,10 @@ export const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
 export const CustomTreeItemIconContainer = styled(TreeItem2IconContainer)(
   ({ theme }) => ({
     marginRight: theme.spacing(1),
+    '& .MuiSvgIcon-root': {
+      fontSize: '1rem', // 아이콘 크기
+      color: theme.palette.text.primary,
+    },
   }),
 );
 
@@ -54,7 +55,6 @@ export const CustomTreeItemGroupTransition = styled(TreeItem2GroupTransition)(
   }),
 );
 
-// CustomTreeItem 컴포넌트
 export const CustomTreeItem = React.forwardRef(
   function CustomTreeItem(props, ref) {
     const theme = useTheme();
@@ -113,17 +113,31 @@ export const CustomTreeItem = React.forwardRef(
                 pr: 0,
               }}
             >
-              <Box component={LabelIcon} color="inherit" sx={{ mr: 1 }} />
+              <Box
+                component={LabelIcon}
+                color="inherit"
+                sx={{
+                  mr: 2,
+                  fontSize: theme.typography['body.small.semiBold'].fontSize,
+                }}
+              />
               <Typography
                 {...getLabelProps({
-                  variant: 'body2',
-                  sx: { display: 'flex', fontWeight: 'inherit', flexGrow: 1 },
+                  variant: 'body.small.semiBold',
+                  sx: {
+                    display: 'flex',
+                    flexGrow: 1,
+                    color: theme.palette.text.primary,
+                  },
                 })}
               >
                 {label}
               </Typography>
               {labelInfo && (
-                <Typography variant="caption" color="inherit">
+                <Typography
+                  variant="caption"
+                  color={theme.palette.text.secondary}
+                >
                   {labelInfo}
                 </Typography>
               )}

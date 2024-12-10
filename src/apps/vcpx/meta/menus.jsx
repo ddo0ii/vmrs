@@ -1,27 +1,27 @@
 import {
-  BusinessOutlined,
-  DashboardOutlined,
-  PaymentOutlined,
+  DashboardOutlined as DashBoardIcon,
+  PaymentOutlined as PaymentIcon,
+  SearchOutlined as SearchIcon,
 } from '@mui/icons-material';
 import { Path } from '@/constants/path';
 
 export const menus = [
   {
-    id: 'dashboard',
-    title: '대시보드',
+    id: Path.DASHBOARD,
+    title: 'Dashboard',
     path: Path.DASHBOARD,
-    icon: DashboardOutlined, // 컴포넌트로 전달
+    icon: DashBoardIcon,
   },
   {
-    id: 'company',
-    title: '회사 관리',
+    id: Path.COMPANY,
+    title: 'Search',
     path: Path.COMPANY,
-    icon: BusinessOutlined, // 컴포넌트로 전달
+    icon: SearchIcon,
   },
   {
-    id: 'billing',
-    title: '정산 관리',
+    id: Path.BILLING,
+    title: 'Billing',
     path: Path.BILLING,
-    icon: PaymentOutlined, // 컴포넌트로 전달
+    icon: PaymentIcon,
   },
 ];
