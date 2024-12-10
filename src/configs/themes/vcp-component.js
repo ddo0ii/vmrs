@@ -43,13 +43,13 @@ export const VCPComponent = (mode) => {
         root: {
           fontFamily: VCPTypography.fontFamily,
           ...VCPTypography['body.medium.regular'],
-          backgroundColor: palette.background.default,
+          backgroundColor: palette.background.paper,
           color: palette.text.primary,
           borderRadius: 8,
           '& .MuiInputBase-root': {
             padding: '10px 14px',
             borderRadius: 8,
-            backgroundColor: palette.background.default,
+            backgroundColor: palette.background.paper,
             border: `1px solid ${palette.border.default}`,
           },
           '& .MuiInputBase-input::placeholder': {
@@ -71,11 +71,11 @@ export const VCPComponent = (mode) => {
           fontFamily: VCPTypography.fontFamily,
           ...VCPTypography['body.medium.regular'],
           borderRadius: 8,
-          backgroundColor: palette.background.default,
+          backgroundColor: palette.background.paper,
           '& .MuiSelect-select': {
             padding: '10px 14px',
             borderRadius: 8,
-            backgroundColor: palette.background.default,
+            backgroundColor: palette.background.paper,
           },
         },
       },
@@ -90,7 +90,7 @@ export const VCPComponent = (mode) => {
           height: 40,
           padding: 0,
           borderRadius: 8,
-          backgroundColor: palette.background.default,
+          backgroundColor: palette.background.paper,
           '&:hover': {
             backgroundColor: palette.button.hover,
           },
@@ -114,7 +114,7 @@ export const VCPComponent = (mode) => {
           ...VCPTypography['h2.regular'],
           height: 72,
           padding: '10px 24px',
-          backgroundColor: palette.background.default,
+          backgroundColor: palette.background.paper,
           color: palette.text.primary,
         },
       },
@@ -132,7 +132,7 @@ export const VCPComponent = (mode) => {
             ...VCPTypography['body.medium.regular'],
             padding: '10px 14px',
             borderRadius: 8,
-            backgroundColor: palette.background.default,
+            backgroundColor: palette.background.paper,
             '& .MuiInputBase-input::placeholder': {
               ...VCPTypography['placeholder.medium'],
               color: palette.text.placeholder,
@@ -152,7 +152,7 @@ export const VCPComponent = (mode) => {
             mode === 'light'
               ? '0px 6px 12px rgba(0, 0, 0, 0.1)'
               : '0px 6px 12px rgba(255, 255, 255, 0.1)',
-          backgroundColor: palette.background.default,
+          backgroundColor: palette.background.paper,
           color: palette.text.primary,
           padding: '20px',
         },
@@ -164,7 +164,7 @@ export const VCPComponent = (mode) => {
       styleOverrides: {
         root: {
           fontFamily: VCPTypography.fontFamily,
-          backgroundColor: palette.background.default,
+          backgroundColor: palette.background.paper,
           '& .MuiTableHead-root': {
             ...VCPTypography['table.header'],
             backgroundColor: palette.table.header,
@@ -206,8 +206,16 @@ export const VCPComponent = (mode) => {
           '& .MuiTablePagination-root': {},
           '& .MuiDataGrid-footerContainer': {},
           '& .MuiDataGrid-cell': {},
-          '& .MuiDataGrid-columnHeaders': {},
-          '& .MuiDataGrid-columnSeparator': {},
+          '& .MuiDataGrid-columnHeaderTitleContainer': {
+            backgroundColor: palette.background.paper,
+          },
+          '& .MuiDataGrid-columnHeader': {
+            backgroundColor: palette.background.paper,
+          },
+          // '& .MuiDataGrid-columnHeaders': {},
+          '& .MuiDataGrid-columnSeparator': {
+            display: 'none',
+          },
           '& .MuiDataGrid-row:hover': {},
         },
       },

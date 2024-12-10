@@ -35,17 +35,17 @@ export const DashboardPaper = ({
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 1,
+        gap: 0.5,
         p: 2,
         border: `1px solid ${theme.palette.border.default}`,
         borderRadius: 3,
         flexGrow: 1,
       }}
     >
-      <Typography variant="body.medium.regular">{title}</Typography>
-      <Typography variant="h4.semiBold">{formatNumber(count)}</Typography>
+      <Typography variant="body.small.regular">{title}</Typography>
+      <Typography variant="h5.semiBold">{formatNumber(count)}</Typography>
       <Typography
-        variant="body.small.regular"
+        variant="body.xSmall.regular"
         sx={{ color: theme.palette.text.secondary }}
       >
         {period}
@@ -61,16 +61,11 @@ export const DashboardPaper = ({
         ]}
         leftAxis={null}
         bottomAxis={null}
-        width={330}
+        width={350}
         height={50}
-        margin={{
-          left: 0,
-          right: 0,
-          top: 0,
-          bottom: 0,
-        }}
+        margin={{ left: 0, right: 0, top: 0, bottom: 0 }}
         axisHighlight={{ x: 'none', y: 'none' }}
-        sx={{ ml: 2 }}
+        sx={{ p: 0, m: 0 }}
       />
     </Paper>
   );
