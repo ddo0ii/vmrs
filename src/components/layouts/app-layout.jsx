@@ -44,7 +44,7 @@ export const AppLayout = ({ menuData, mode, setMode, ...props }) => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', height: '100vh' }}>
       <AppBar
         position="fixed"
         elevation={0}
@@ -97,11 +97,30 @@ export const AppLayout = ({ menuData, mode, setMode, ...props }) => {
           <IconButton
             color="inherit"
             onClick={toggleThemeMode}
-            sx={{ backgroundColor: 'transparent' }}
+            sx={{
+              backgroundColor: 'transparent',
+              '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.05)', // 호버 시 살짝 어두운 배경
+              },
+              '&:active': {
+                backgroundColor: 'rgba(0, 0, 0, 0.1)', // 클릭 시 더 강조된 배경
+              },
+            }}
           >
             {mode === 'light' ? <Bedtime /> : <WbSunny />}
           </IconButton>
-          <IconButton sx={{ backgroundColor: 'transparent' }}>
+
+          <IconButton
+            sx={{
+              backgroundColor: 'transparent',
+              '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.05)', // 동일한 호버 색상
+              },
+              '&:active': {
+                backgroundColor: 'rgba(0, 0, 0, 0.1)', // 동일한 클릭 색상
+              },
+            }}
+          >
             <NotificationsNoneOutlined />
           </IconButton>
           {/* 아바타 */}
@@ -112,10 +131,22 @@ export const AppLayout = ({ menuData, mode, setMode, ...props }) => {
               boxShadow: 'none',
               p: 2,
               backgroundColor: 'transparent',
+              '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.05)',
+              },
+              '&:active': {
+                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              },
             }}
           >
             <Avatar src={Person} alt="avatar" sx={{ width: 32, height: 32 }} />
-            <Typography sx={{ fontSize: '14px', fontWeight: 550 }}>
+            <Typography
+              sx={{
+                fontSize: '14px',
+                fontWeight: 550,
+                color: mode === 'light' ? '#1F2937' : '#FFFFFF',
+              }}
+            >
               Emma Watson
             </Typography>
           </Button>

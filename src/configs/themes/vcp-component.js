@@ -15,7 +15,7 @@ export const VCPComponent = (mode) => {
           padding: '10px 20px',
           borderRadius: 12,
           backgroundColor: palette.button.default,
-          color: palette.text.primary,
+          color: palette.text.contrastText,
           boxShadow:
             mode === 'light'
               ? '0px 4px 8px rgba(0, 0, 0, 0.1)'
@@ -168,12 +168,10 @@ export const VCPComponent = (mode) => {
           '& .MuiTableHead-root': {
             ...VCPTypography['table.header'],
             backgroundColor: palette.table.header,
-            // color: palette.text.primary,
           },
           '& .MuiTableBody-root': {
             ...VCPTypography['table.body'],
             backgroundColor: palette.table.body,
-            // color: palette.text.secondary,
           },
         },
       },
@@ -182,41 +180,84 @@ export const VCPComponent = (mode) => {
     // DataGrid
     MuiDataGrid: {
       defaultProps: {
-        // disableRowSelectionOnClick: true,
-        // disableColumnFilter: true,
-        // disableColumnSelector: true,
-        // disableDensitySelector: true,
-        // disableColumnMenu: true,
+        pageSize: 10,
+        rowsPerPageOptions: [5, 10, 25],
       },
       styleOverrides: {
         root: {
           border: 'none',
+          backgroundColor: palette.background.paper, // 배경색
+          color: palette.text.primary, // 텍스트 색상
           '& .MuiInputBase-root': {
             fontSize: '0.9rem', // 드롭다운 숫자 크기
             '& .MuiSelect-root': {},
           },
-          // '& .MuiInputBase-root': {
-          //   '& .MuiSelect-root': {},
-          // },
           '& .MuiInputBase-inputSizeSmall': {
             padding: '0px', // 기본 패딩 제거
-          },
-          '& .MuiSelect-select': {},
-          '& .MuiSelect-icon': {},
-          '& .MuiTablePagination-root': {},
-          '& .MuiDataGrid-footerContainer': {},
-          '& .MuiDataGrid-cell': {},
-          '& .MuiDataGrid-columnHeaderTitleContainer': {
-            backgroundColor: palette.background.paper,
           },
           '& .MuiDataGrid-columnHeader': {
             backgroundColor: palette.background.paper,
           },
-          // '& .MuiDataGrid-columnHeaders': {},
+          '& .MuiDataGrid-columnHeaders': {
+            // backgroundColor: mode === 'light' ? '#F4F6F8' : '#1D1D1D', // 헤더 배경색
+            // color: mode === 'light' ? '#1F2937' : '#FFFFFF', // 헤더 텍스트 색상
+            // borderBottom: `1px solid ${palette.border.default}`, // 헤더 하단 테두리
+          },
+          '& .MuiDataGrid-columnHeaderTitle': {
+            // fontWeight: 600, // 헤더 폰트 굵기
+            // fontSize: '0.9rem',
+          },
+          '& .MuiDataGrid-columnHeaderTitleContainer': {
+            backgroundColor: palette.background.paper,
+          },
           '& .MuiDataGrid-columnSeparator': {
             display: 'none',
           },
-          '& .MuiDataGrid-row:hover': {},
+          '& .MuiIconButton-root': {
+            // 필터링 및 정렬 버튼 스타일
+            marginLeft: '5px',
+            padding: '6px', // 버튼 패딩
+            width: '24px', // 버튼 너비
+            height: '24px', // 버튼 높이
+            color: palette.text.primary, // 기본 텍스트 색상
+            backgroundColor: 'transparent', // 기본 배경색
+            transition: 'background-color 0.3s ease', // 부드러운 전환 효과
+            '&:hover': {
+              backgroundColor: 'rgba(0, 0, 0, 0.05)', // 호버 시 배경색
+            },
+            '&:active': {
+              backgroundColor: 'rgba(0, 0, 0, 0.1)', // 클릭 시 배경색
+            },
+          },
+          '& .MuiSvgIcon-root.MuiDataGrid-sortIcon': {
+            width: '16px', // 아이콘 너비
+            height: '16px', // 아이콘 높이
+            fontSize: '16px', // 아이콘 크기
+            color: palette.text.primary, // 아이콘 색상
+          },
+          '& .MuiDataGrid-row': {
+            '&:hover': {
+              backgroundColor: mode === 'light' ? '#F9FAFB' : '#2A2A2A', // 행 호버 배경색
+            },
+            '&:nth-of-type(even)': {
+              // backgroundColor: mode === 'light' ? '#FFFFFF' : '#242424', // 짝수 행 배경색
+            },
+            '&:nth-of-type(odd)': {
+              // backgroundColor: mode === 'light' ? '#F9FAFB' : '#1E1E1E', // 홀수 행 배경색
+            },
+          },
+          '& .MuiDataGrid-cell': {
+            // borderBottom: `1px solid ${palette.border.default}`, // 셀 하단 테두리
+            // color: palette.text.primary, // 셀 텍스트 색상
+          },
+          '& .MuiDataGrid-footerContainer': {
+            // backgroundColor: palette.background.paper, // 푸터 배경색
+            // color: palette.text.primary, // 푸터 텍스트 색상
+          },
+          '& .MuiDataGrid-toolbarContainer': {
+            // backgroundColor: palette.background.paper, // 툴바 배경색
+            // borderBottom: `1px solid ${palette.border.default}`, // 툴바 하단 테두리
+          },
         },
       },
     },

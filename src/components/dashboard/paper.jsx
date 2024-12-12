@@ -38,7 +38,7 @@ export const DashboardPaper = ({
         gap: 0.5,
         p: 2,
         border: `1px solid ${theme.palette.border.default}`,
-        borderRadius: 3,
+        borderRadius: 2,
         flexGrow: 1,
       }}
     >
