@@ -3,12 +3,13 @@ import { Toolbar } from '@mui/material';
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import { ChevronRight, ExpandMore } from '@mui/icons-material';
 import Logo from '@/assets/images/logo.png';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { DrawerCustomTreeItem } from '@/components/tree-view/drawer-tree-view';
+import { Path } from '@/constants/path';
 
-// SideNavBar 컴포넌트
 export const SideNavBar = ({ menuData, mode }) => {
   const navigate = useNavigate();
+  const location = useLocation(); // 현재 경로 가져오기
 
   return (
     <div>
@@ -23,7 +24,7 @@ export const SideNavBar = ({ menuData, mode }) => {
         <img
           src={Logo}
           alt="VCP-X 로고"
-          onClick={() => navigate(Path.DASHBOARD)}
+          onClick={() => navigate(Path.HOME)}
           style={{ cursor: 'pointer', width: '100px' }}
         />
       </Toolbar>
@@ -43,6 +44,7 @@ export const SideNavBar = ({ menuData, mode }) => {
             label={menu.title}
             labelIcon={menu.icon}
             onClick={() => navigate(menu.path)}
+            // selected={location.pathname === menu.path} // 현재 경로와 메뉴 경로를 비교
           />
         ))}
       </SimpleTreeView>
