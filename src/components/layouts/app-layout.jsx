@@ -198,7 +198,8 @@ export const AppLayout = ({ menuData, mode, setMode, ...props }) => {
           flexGrow: 1,
           p: '0 40px 24px',
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-          backgroundColor: palette.background.paper,
+          backgroundColor: '#F3F7FF',
+          // backgroundColor: palette.background.paper,
         }}
       >
         <Toolbar />

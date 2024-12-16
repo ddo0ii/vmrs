@@ -14,17 +14,13 @@ export const VCPComponent = (mode) => {
           textTransform: 'none',
           padding: '10px 20px',
           borderRadius: 12,
-          backgroundColor: palette.button.default,
-          color: palette.text.contrastText,
-          boxShadow:
-            mode === 'light'
-              ? '0px 4px 8px rgba(0, 0, 0, 0.1)'
-              : '0px 4px 8px rgba(255, 255, 255, 0.1)',
+          backgroundColor: palette.primary.main,
+          color: palette.primary.contrastText,
           '&:hover': {
-            backgroundColor: palette.button.hover,
+            backgroundColor: palette.primary.hover,
           },
           '&:active': {
-            backgroundColor: palette.button.active,
+            backgroundColor: palette.primary.active,
           },
           '&:disabled': {
             backgroundColor: palette.button.disabled,
@@ -36,21 +32,22 @@ export const VCPComponent = (mode) => {
 
     // TextField
     MuiTextField: {
-      defaultProps: {
-        size: 'small',
-      },
+      defaultProps: { size: 'small' },
       styleOverrides: {
         root: {
           fontFamily: VCPTypography.fontFamily,
           ...VCPTypography['body.medium.regular'],
-          backgroundColor: palette.background.paper,
-          color: palette.text.primary,
-          borderRadius: 8,
+          // backgroundColor: palette.background.paper,
+          // color: palette.text.primary,
           '& .MuiInputBase-root': {
-            padding: '10px 14px',
             borderRadius: 8,
             backgroundColor: palette.background.paper,
-            border: `1px solid ${palette.border.default}`,
+            // border: `1px solid ${palette.border.default}`,
+            // '&:hover': { borderColor: palette.primary.light },
+            '&:focus-within': {
+              // borderColor: palette.primary.main,
+              // boxShadow: `0 0 0 3px ${palette.primary.main}33`,
+            },
           },
           '& .MuiInputBase-input::placeholder': {
             fontFamily: VCPTypography.fontFamily,
@@ -63,19 +60,18 @@ export const VCPComponent = (mode) => {
 
     // Select
     MuiSelect: {
-      defaultProps: {
-        size: 'small',
-      },
+      defaultProps: { size: 'small' },
       styleOverrides: {
         root: {
           fontFamily: VCPTypography.fontFamily,
           ...VCPTypography['body.medium.regular'],
           borderRadius: 8,
           backgroundColor: palette.background.paper,
-          '& .MuiSelect-select': {
-            padding: '10px 14px',
-            borderRadius: 8,
-            backgroundColor: palette.background.paper,
+          // border: `1px solid ${palette.border.default}`,
+          // '&:hover': { borderColor: palette.primary.light },
+          '&.Mui-focused': {
+            // borderColor: palette.primary.main,
+            boxShadow: `0 0 0 3px ${palette.primary.main}33`,
           },
         },
       },
@@ -85,7 +81,6 @@ export const VCPComponent = (mode) => {
     MuiIconButton: {
       styleOverrides: {
         root: {
-          fontFamily: VCPTypography.fontFamily,
           width: 40,
           height: 40,
           padding: 0,
@@ -122,9 +117,7 @@ export const VCPComponent = (mode) => {
 
     // Autocomplete
     MuiAutocomplete: {
-      defaultProps: {
-        size: 'small',
-      },
+      defaultProps: { size: 'small' },
       styleOverrides: {
         root: {
           fontFamily: VCPTypography.fontFamily,
@@ -136,6 +129,53 @@ export const VCPComponent = (mode) => {
             '& .MuiInputBase-input::placeholder': {
               ...VCPTypography['placeholder.medium'],
               color: palette.text.placeholder,
+            },
+          },
+        },
+      },
+    },
+
+    // Checkbox
+    MuiCheckbox: {
+      defaultProps: { size: 'small' },
+      styleOverrides: {
+        root: {
+          color: palette.primary.main,
+          '&.Mui-checked': {
+            color: palette.primary.main,
+          },
+          '&:hover': {
+            backgroundColor: `${palette.primary.light}33`,
+          },
+        },
+      },
+    },
+
+    // Radio
+    MuiRadio: {
+      defaultProps: { size: 'small' },
+      styleOverrides: {
+        root: {
+          color: palette.primary.main,
+          '&.Mui-checked': {
+            color: palette.primary.main,
+          },
+          '&:hover': {
+            backgroundColor: `${palette.primary.light}33`,
+          },
+        },
+      },
+    },
+
+    // Switch
+    MuiSwitch: {
+      defaultProps: { size: 'small' },
+      styleOverrides: {
+        root: {
+          '& .MuiSwitch-switchBase.Mui-checked': {
+            color: palette.primary.main,
+            '& + .MuiSwitch-track': {
+              backgroundColor: palette.primary.light,
             },
           },
         },
@@ -262,24 +302,6 @@ export const VCPComponent = (mode) => {
       },
     },
 
-    MuiCheckbox: {
-      defaultProps: {
-        size: 'small',
-      },
-    },
-
-    MuiRadio: {
-      defaultProps: {
-        size: 'small',
-      },
-    },
-
-    MuiSwitch: {
-      defaultProps: {
-        size: 'small',
-      },
-    },
-
     // Chip
     MuiChip: {
       styleOverrides: {
@@ -290,6 +312,7 @@ export const VCPComponent = (mode) => {
           color: palette.text.primary,
           '&:hover': {
             backgroundColor: palette.primary.main,
+            color: palette.primary.contrastText,
           },
         },
       },
@@ -303,7 +326,7 @@ export const VCPComponent = (mode) => {
           ...VCPTypography['body.small.regular'],
           backgroundColor: palette.background.contrast,
           color: palette.text.primary,
-          borderRadius: 6,
+          borderRadius: 8,
           padding: '8px 16px',
         },
       },
