@@ -33,11 +33,8 @@ export const SideNavBar = ({ menuData, mode }) => {
       <SimpleTreeView
         aria-label="side navigation"
         defaultExpandedItems={['1']}
-        slots={{
-          expandIcon: ChevronRight,
-          collapseIcon: ExpandMore,
-        }}
-        sx={{ flexGrow: 1, maxWidth: 400 }}
+        slots={{ expandIcon: ChevronRight, collapseIcon: ExpandMore }}
+        sx={{ flexGrow: 1, maxWidth: 400, ml: 2, mr: 2, mt: 3 }}
       >
         {menuData.map((menu) => (
           <DrawerCustomTreeItem

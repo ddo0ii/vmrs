@@ -21,12 +21,12 @@ const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'flex-start',
   color: theme.palette.text.secondary,
-  borderRadius: theme.spacing(1), // 모서리 둥글게
-  padding: theme.spacing(0.5, 1), // 패딩 설정 (상하 0.5, 좌우 1)
+  borderRadius: theme.spacing(2), // 모서리 둥글게
+  // padding: theme.spacing(0.5, 1), // 패딩 설정 (상하 0.5, 좌우 1)
   fontSize: theme.typography['body.small.regular'].fontSize,
   fontWeight: theme.typography['body.small.regular'].fontWeight,
   '&.selected': {
-    backgroundColor: theme.palette.action.selected, // 선택된 항목 배경색
+    backgroundColor: theme.palette.background.contrast, // 선택된 항목 배경색
     color: theme.palette.primary.main, // 선택된 항목 텍스트 색상
     fontWeight: theme.typography['body.small.bold'].fontWeight,
   },
