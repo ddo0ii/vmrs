@@ -17,7 +17,7 @@ export const DataLayout = () => {
         sx={{
           flexGrow: 1,
           p: '0 40px 24px',
-          backgroundColor: theme.palette.background.paper,
+          backgroundColor: theme.palette.background.default,
         }}
       >
         <Suspense fallback={<div>Loading...</div>}>

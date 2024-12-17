@@ -17,22 +17,21 @@ const CustomTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
 }));
 
 const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
-  marginBottom: theme.spacing(0.3),
+  display: 'inline-flex', // 텍스트와 아이콘 주변만 강조
+  alignItems: 'center',
+  justifyContent: 'flex-start',
   color: theme.palette.text.secondary,
-  borderRadius: theme.spacing(1),
-  padding: theme.spacing(1),
-  // paddingRight: theme.spacing(1),
+  borderRadius: theme.spacing(1), // 모서리 둥글게
+  padding: theme.spacing(0.5, 1), // 패딩 설정 (상하 0.5, 좌우 1)
   fontSize: theme.typography['body.small.regular'].fontSize,
   fontWeight: theme.typography['body.small.regular'].fontWeight,
-  '&.expanded': {
+  '&.selected': {
+    backgroundColor: theme.palette.action.selected, // 선택된 항목 배경색
+    color: theme.palette.primary.main, // 선택된 항목 텍스트 색상
     fontWeight: theme.typography['body.small.bold'].fontWeight,
   },
   '&:hover': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  '&.focused, &.selected, &.selected.focused': {
-    backgroundColor: `var(--tree-view-bg-color, ${theme.palette.action.selected})`,
-    color: 'var(--tree-view-color)',
+    backgroundColor: theme.palette.action.hover, // 호버 시 배경색
   },
 }));
 
@@ -127,7 +126,10 @@ export const DrawerCustomTreeItem = forwardRef(
                   sx: {
                     display: 'flex',
                     flexGrow: 1,
-                    color: theme.palette.text.primary,
+                    color: status.selected
+                      ? theme.palette.primary.main // 선택된 경우 글자 색상 변경
+                      : theme.palette.text.primary, // 기본 색상
+                    fontWeight: status.selected ? 600 : 400, // 선택된 경우 글자 두께 강조
                   },
                 })}
               >

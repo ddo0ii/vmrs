@@ -72,6 +72,9 @@ export const AppLayout = ({ menuData, mode, setMode, ...props }) => {
               '& .MuiAutocomplete-endAdornment': {
                 display: 'none', // 드롭다운 화살표 제거
               },
+              '& .MuiOutlinedInput-notchedOutline': {
+                border: 'none', // 외곽선 제거
+              },
             }}
             renderInput={(params) => (
               <TextField
@@ -169,7 +172,8 @@ export const AppLayout = ({ menuData, mode, setMode, ...props }) => {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
-              backgroundColor: mode === 'light' ? '#f8f9fa' : '#1d1d1d', // 드로어 배경색
+              backgroundColor: palette.background.paper,
+              // backgroundColor: mode === 'light' ? '#f8f9fa' : '#1d1d1d', // 드로어 배경색
               color: mode === 'light' ? '#2c3e50' : '#ffffff', // 드로어 텍스트 색상
             },
           }}
@@ -183,8 +187,11 @@ export const AppLayout = ({ menuData, mode, setMode, ...props }) => {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
-              backgroundColor: mode === 'light' ? '#f5f6fa' : '#1d1d1d', // 배경 색상
+              backgroundColor: palette.background.paper,
+              // backgroundColor: mode === 'light' ? '#f5f6fa' : '#1d1d1d', // 배경 색상
               color: mode === 'light' ? '#7f8c8d' : '#bbbbbb', // 기본 텍스트 색상
+              border: 'none', // 드로어의 경계선 제거
+              boxShadow: 'none', // 드로어의 그림자 제거
             },
           }}
           open
@@ -196,10 +203,9 @@ export const AppLayout = ({ menuData, mode, setMode, ...props }) => {
         component="main"
         sx={{
           flexGrow: 1,
-          p: '0 40px 24px',
+          p: '24px 40px 24px',
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-          backgroundColor: '#F3F7FF',
-          // backgroundColor: palette.background.paper,
+          backgroundColor: palette.background.default,
         }}
       >
         <Toolbar />

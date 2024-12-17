@@ -6,8 +6,10 @@ import Logo from '@/assets/images/logo.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { DrawerCustomTreeItem } from '@/components/tree-view/drawer-tree-view';
 import { Path } from '@/constants/path';
+import { useTheme } from '@mui/material/styles';
 
 export const SideNavBar = ({ menuData, mode }) => {
+  const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation(); // 현재 경로 가져오기
 
@@ -15,7 +17,7 @@ export const SideNavBar = ({ menuData, mode }) => {
     <div>
       <Toolbar
         sx={{
-          backgroundColor: mode === 'light' ? '#f5f6fa' : '#1d1d1d',
+          backgroundColor: theme.palette.background.paper,
           display: 'flex',
           alignItems: 'center',
           ml: 2,

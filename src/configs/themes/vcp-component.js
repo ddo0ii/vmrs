@@ -109,7 +109,7 @@ export const VCPComponent = (mode) => {
           ...VCPTypography['h2.regular'],
           height: 72,
           padding: '10px 24px',
-          backgroundColor: palette.background.paper,
+          backgroundColor: palette.background.default,
           color: palette.text.primary,
         },
       },
@@ -204,14 +204,14 @@ export const VCPComponent = (mode) => {
       styleOverrides: {
         root: {
           fontFamily: VCPTypography.fontFamily,
-          backgroundColor: palette.background.paper,
+          // backgroundColor: palette.background.paper,
           '& .MuiTableHead-root': {
             ...VCPTypography['table.header'],
-            backgroundColor: palette.table.header,
+            // backgroundColor: palette.table.header,
           },
           '& .MuiTableBody-root': {
             ...VCPTypography['table.body'],
-            backgroundColor: palette.table.body,
+            // backgroundColor: palette.table.body,
           },
         },
       },
@@ -226,7 +226,8 @@ export const VCPComponent = (mode) => {
       styleOverrides: {
         root: {
           border: 'none',
-          backgroundColor: palette.background.paper, // 배경색
+          backgroundColor: 'transparent',
+          // backgroundColor: palette.background.paper, // 배경색
           color: palette.text.primary, // 텍스트 색상
           '& .MuiInputBase-root': {
             fontSize: '0.9rem', // 드롭다운 숫자 크기
@@ -236,7 +237,10 @@ export const VCPComponent = (mode) => {
             padding: '0px', // 기본 패딩 제거
           },
           '& .MuiDataGrid-columnHeader': {
-            backgroundColor: palette.background.paper,
+            // backgroundColor: 'transparent',
+            // backgroundColor: palette.background.paper,
+            backgroundColor: palette.table.header, // 헤더 배경색
+            color: palette.text.primary, // 헤더 텍스트 색상
           },
           '& .MuiDataGrid-columnHeaders': {
             // backgroundColor: mode === 'light' ? '#F4F6F8' : '#1D1D1D', // 헤더 배경색
@@ -248,7 +252,8 @@ export const VCPComponent = (mode) => {
             // fontSize: '0.9rem',
           },
           '& .MuiDataGrid-columnHeaderTitleContainer': {
-            backgroundColor: palette.background.paper,
+            backgroundColor: 'transparent',
+            // backgroundColor: palette.background.paper,
           },
           '& .MuiDataGrid-columnSeparator': {
             display: 'none',
@@ -263,10 +268,10 @@ export const VCPComponent = (mode) => {
             backgroundColor: 'transparent', // 기본 배경색
             transition: 'background-color 0.3s ease', // 부드러운 전환 효과
             '&:hover': {
-              backgroundColor: 'rgba(0, 0, 0, 0.05)', // 호버 시 배경색
+              // backgroundColor: 'rgba(0, 0, 0, 0.05)', // 호버 시 배경색
             },
             '&:active': {
-              backgroundColor: 'rgba(0, 0, 0, 0.1)', // 클릭 시 배경색
+              // backgroundColor: 'rgba(0, 0, 0, 0.1)', // 클릭 시 배경색
             },
           },
           '& .MuiSvgIcon-root.MuiDataGrid-sortIcon': {
@@ -276,23 +281,22 @@ export const VCPComponent = (mode) => {
             color: palette.text.primary, // 아이콘 색상
           },
           '& .MuiDataGrid-row': {
-            '&:hover': {
-              backgroundColor: mode === 'light' ? '#F9FAFB' : '#2A2A2A', // 행 호버 배경색
+            '&:nth-of-type(odd)': {
+              // backgroundColor: palette.background.default, // 홀수 행 배경색
             },
             '&:nth-of-type(even)': {
-              // backgroundColor: mode === 'light' ? '#FFFFFF' : '#242424', // 짝수 행 배경색
+              // backgroundColor: palette.background.paper, // 짝수 행 배경색
             },
-            '&:nth-of-type(odd)': {
-              // backgroundColor: mode === 'light' ? '#F9FAFB' : '#1E1E1E', // 홀수 행 배경색
+            '&:hover': {
+              // backgroundColor: palette.background.contrast, // 호버 시 배경색
             },
           },
           '& .MuiDataGrid-cell': {
-            // borderBottom: `1px solid ${palette.border.default}`, // 셀 하단 테두리
-            // color: palette.text.primary, // 셀 텍스트 색상
+            // borderBottom: `1px solid ${palette.border.default}`, // 셀 테두리 색상
           },
           '& .MuiDataGrid-footerContainer': {
-            // backgroundColor: palette.background.paper, // 푸터 배경색
-            // color: palette.text.primary, // 푸터 텍스트 색상
+            backgroundColor: palette.background.paper, // 푸터 배경색
+            color: palette.text.secondary, // 푸터 텍스트 색상
           },
           '& .MuiDataGrid-toolbarContainer': {
             // backgroundColor: palette.background.paper, // 툴바 배경색

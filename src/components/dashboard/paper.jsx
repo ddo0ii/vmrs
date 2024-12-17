@@ -37,8 +37,8 @@ export const DashboardPaper = ({
         flexDirection: 'column',
         gap: 0.5,
         p: 2,
-        border: `1px solid ${theme.palette.border.default}`,
-        borderRadius: 2,
+        // border: `1px solid ${theme.palette.border.default}`,
+        borderRadius: 4,
         flexGrow: 1,
       }}
     >
